@@ -1,1 +1,18 @@
 2023/07/04 21:15:47 main.go:16: test
+2023/07/05 23:45:16 users.go:33: near ",": syntax error
+2023/07/05 23:46:46 users.go:33: near ",": syntax error
+2023/07/05 23:48:03 users.go:32: near ",": syntax error
+2023/07/05 23:49:09 users.go:33: near ")": syntax error
+2023/07/05 23:49:23 users.go:32: near ",": syntax error
+2023/07/05 23:49:25 users.go:32: near ",": syntax error
+2023/07/05 23:50:03 users.go:32: near ",": syntax error
+2023/07/05 23:51:29 users.go:32: near ",": syntax error
+2023/07/05 23:52:21 users.go:32: near ",": syntax error
+2023/07/05 23:54:45 users.go:27: near ",": syntax error
+2023/07/05 23:54:47 users.go:27: near ",": syntax error
+2023/07/05 23:55:04 users.go:27: near ",": syntax error
+2023/07/05 23:55:15 users.go:27: near ",": syntax error
+2023/07/05 23:56:04 users.go:33: near ")": syntax error
+2023/07/05 23:56:09 users.go:33: near ")": syntax error
+2023/07/05 23:56:10 users.go:33: near ")": syntax error
+2023/07/05 23:56:21 users.go:33: near ")": syntax error
