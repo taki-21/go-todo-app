@@ -16,3 +16,4 @@
 2023/07/05 23:56:09 users.go:33: near ")": syntax error
 2023/07/05 23:56:10 users.go:33: near ")": syntax error
 2023/07/05 23:56:21 users.go:33: near ")": syntax error
+2023/07/06 00:16:01 users.go:55: near "where": syntax error
