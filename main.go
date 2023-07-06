@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/taki-21/go-todo-app/app/models"
 )
 
@@ -50,10 +48,13 @@ func main() {
 	// for _, v := range todos {
 	// 	fmt.Println(v)
 	// }
-	user3, _ := models.GetUser(3)
-	todos, _ := user3.GetTodosByUser()
-	for _, v := range todos {
-		fmt.Println(v)
-	}
+	// user3, _ := models.GetUser(3)
+	// todos, _ := user3.GetTodosByUser()
+	// for _, v := range todos {
+	// 	fmt.Println(v)
+	// }
 
+	t, _ := models.GetTodo(1)
+	t.Content = "Update todo"
+	t.UpdateTodo()
 }
