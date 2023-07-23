@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/taki-21/go-todo-app/app/models"
 	"github.com/taki-21/go-todo-app/config"
 )
 
@@ -18,6 +19,17 @@ func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) 
 	templates.ExecuteTemplate(w, "layout", data)
 }
 
+func session(w http.ResponseWriter, r *http.Request) (session models.Session, err error) {
+	cookie, err := r.Cookie("_cookie")
+	if err == nil{
+		session = models.Session{UUID: cookie.Value}
+		if ok, _ := session.CheckSession(); !ok {
+			err = fmt.Errorf("Invalid session")
+		}
+	}
+	return session, err
+}
+
 func StartMainServer() error {
 	files := http.FileServer(http.Dir(config.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))
@@ -25,6 +37,7 @@ func StartMainServer() error {
 	http.HandleFunc("/signup", signup)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/authenticate", authenticate)
+	http.HandleFunc("/todos", index)
 
 	// 第二引数をnilにした場合のデフォルトのマルチプレクサは登録されていないURLにアクセスしたら、デフォルトで 404 Page Not Found を返す
 	// 第二引数がnilだから DefaultServeMux が使用される
