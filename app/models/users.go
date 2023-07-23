@@ -12,6 +12,7 @@ type User struct {
 	Email     string
 	PassWord  string
 	CreatedAt time.Time
+	Todos     []Todo
 }
 
 type Session struct {
@@ -106,4 +107,11 @@ func (session *Session) CheckSession() (valid bool, err error) {
 		return
 	}
 	return valid, err
+}
+
+func (session *Session) GetUserBySession() (user User, err error) {
+	user = User{}
+	cmd := `select id, uuid, name, email, created_at FROM users where id = ?`
+	err = Db.QueryRow(cmd, session.UserID).Scan(&user.ID, &user.UUID, &user.Name, &user.Email, &user.CreatedAt)
+	return user, err
 }
