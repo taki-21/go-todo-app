@@ -21,7 +21,7 @@ func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) 
 
 func session(w http.ResponseWriter, r *http.Request) (session models.Session, err error) {
 	cookie, err := r.Cookie("_cookie")
-	if err == nil{
+	if err == nil {
 		session = models.Session{UUID: cookie.Value}
 		if ok, _ := session.CheckSession(); !ok {
 			err = fmt.Errorf("Invalid session")
@@ -37,7 +37,9 @@ func StartMainServer() error {
 	http.HandleFunc("/signup", signup)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/authenticate", authenticate)
+	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/todos", index)
+	http.HandleFunc("/todos/new", todoNew)
 
 	// 第二引数をnilにした場合のデフォルトのマルチプレクサは登録されていないURLにアクセスしたら、デフォルトで 404 Page Not Found を返す
 	// 第二引数がnilだから DefaultServeMux が使用される
