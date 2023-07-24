@@ -40,6 +40,7 @@ func StartMainServer() error {
 	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/todos", index)
 	http.HandleFunc("/todos/new", todoNew)
+	http.HandleFunc("/todos/save", todoSave)
 
 	// 第二引数をnilにした場合のデフォルトのマルチプレクサは登録されていないURLにアクセスしたら、デフォルトで 404 Page Not Found を返す
 	// 第二引数がnilだから DefaultServeMux が使用される
